@@ -1,0 +1,10 @@
+matplotlib
+numpy
+pandas
+requests
+beautifulsoup4
+lxml
+janome
+wordcloud
+fastapi
+uvicorn

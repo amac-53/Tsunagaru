@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ゴミばこーひー</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+
+        <ul>
+            <li><a href="foo.html">foo</a></li>
+            <li><a href="bar.html">bar</a></li>
+            <li><a href="baz.html">baz</a></li>
+        </ul>
+
+        <h1>ESPRESSO AFFOGATO Frappuccino | Starbucks Menu</h1>
+    </div>
+    
+    <div class="header_img">
+        <img src="./img/affogato.jpg" alt="ESPRESSO AFFOGATO Frappuccino" width="560px">
+        <p>(ESPRESSO AFFOGATO)</p>
+    </div>
+
+    <p>Affogato beverages and desserts alike are loved for their contrast of hot and cold as well as their pleasing appearance.
+    </p>
+
+    <p>Affogato is generally favoured with vanilla, but feel free to try this recipe with other combinations as well,
+        such as green tea or coffee Frappuccinos if you’re looking to make them a little stronger.
+    </p>
+
+    <p>For more information and please refer to
+        <a href="https://www.starbucks.co.jp/">starbucks.co.jp</a>.<br />
+        We hope to come and enjoy your wonderful life with our coffee
+        <a href="https://store.starbucks.co.jp/detail-4050/">@堺百舌鳥店</a>.
+    </p>
+
+    <div class="button">
+        <button id="baz">Don't you dare click!</button>
+        <script src="index.js"></script>
+        <p>JavaScript（index.js）を変更しても反映されない場合は，ブラウザのキャッシュを削除してみてください．</p>
+        <p>macでchromeの場合は，<code>sift + command + delete</code> でお願いします．</p>
+    </div>
+
+
+    <div id="foo">
+        <p><em>Thank you for visiting.</em></p>
+    </div>
+
+
+    <hr>
+    <p>以下に，簡単に，2個の機能を試してみました．</p>
+    <p>1個目は，youtubeの動画の埋め込みです．コードをコピペするだけなので，非常に簡単でした．</p>
+    <p>2個目は，ボタンを押すことで，pythonによってリアルタイムで作成されたWordCloudの画像を表示させることです．</p>
+    <p>ボタンを押すとFastAPIによるWeb APIが起動します．Web APIのリンクに飛ぶと，pythonがWordCloudの画像を生成して，共有ディレクトリ（ホスト，pythonコンテナ，webコンテナが共有しているディレクトリ）にその画像をコピーします．</p>
+    <p>ただし，飛んだままでは良くないので，最後にリダイレクトすることで，ボタンを押したページまで戻ってくる仕様です（無茶苦茶ですみません）．</p>
+    <p>また，共有ディレクトリにWordCloudの画像が渡されたので，htmlはその画像を読み込むことができています．</p>
+    <p>WordCloudの画像については，「歌詞検索サービス 歌ネット」から抽出した，日向坂46さんの全曲の歌詞を入力データとしています．</p>
+    <p>秋元康さんの作詞の特徴ですが，一人称「僕」，二人称「君」，疑問多い，男性目線の恋愛ソング書きがちなところが出てきています．（内容薄い）</p>
+    <hr>
+
+    <div class="youtube-video">
+        <div class=""song-title>
+            <h2>日向坂46 8th Single「月と星が踊るMidnight」</h2>
+        </div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/vgEVzGcr89w?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="wordcloud">
+        <p>左下のボタンを押すとWordCloudの画像をリアルタイムで作成し出力します．</p>
+        <p>（作成には時間がかかります...）</p>
+        <p>また，右下のボタンを押すとWordCloudの画像を削除します．</p>
+
+        <div class="buttom">
+            <button id="generate" onclick="location.href='http://localhost:8080/api/getWordCloud'">click and generate!</button>
+            <!-- <button id="generate2" onclick="window.open('http://localhost:8080/api/getWordCloud')">click to generate2!</button> -->
+            <button id="delete" onclick="location.href='http://localhost:8080/api/deleteWordCloud'">click and delete!!!</button>
+        </div>
+    
+        <div class="wordcloud_img">
+            <img src="./share-with-python/ohisama.png" alt="word_cloud_image" width="560px" vspace="20px">
+        </div>
+    </div>
+
+
+    <div class="footer">
+        &copy; January 2023
+    </div>
+
+
+
+</body>
+
+</html>

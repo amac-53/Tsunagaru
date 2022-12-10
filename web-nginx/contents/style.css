@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+/* ダークモード */
+/* html {
+    color-scheme: light dark;
+} */
+
+a {
+    text-decoration: none;
+    color: midnightblue;
+}
+
+.header {
+    font-family: Crimson Pro, serif !important;
+    width: 600px;
+    /* background: #eee; */
+    margin-bottom: 50px;
+}
+.header h1 {
+    padding: 5px;
+}
+.header ul {
+    display: flex;
+    padding-left:0;
+}
+.header ul li {
+    list-style:none;
+    width: 300px;
+    text-align: center;
+    background: wheat;
+    border-right: 2px solid #eee;
+    padding: 5px;
+}
+.header ul li:first-child{
+    border-left: 2px solid #eee;
+}
+.header ul li a {
+    display: block;
+}
+
+.header_img {
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.button {
+    margin-top: 50px;
+    text-align: center;
+}
+#baz {
+    padding: 10px 20px;
+}
+
+#foo {
+    font-size: 50px;
+    color: sandybrown;
+}
+
+.song-title {
+    font-family: Crimson Pro, serif !important;
+}
+
+.wordcloud {
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+    color: white;
+    background: #79a1b1;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+
+body {
+    width: 35em;
+    margin: 0 auto;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+
