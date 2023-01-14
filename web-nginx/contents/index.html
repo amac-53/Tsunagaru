@@ -3,94 +3,66 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>ゴミばこーひー</title>
+    <title>OMU Informatics promotion site</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="header">
-
         <ul>
             <li><a href="foo.html">foo</a></li>
             <li><a href="bar.html">bar</a></li>
             <li><a href="baz.html">baz</a></li>
         </ul>
-
-        <h1>ESPRESSO AFFOGATO Frappuccino | Starbucks Menu</h1>
+        <h1>Osaka Metropolitan University Informatics Promotion Site</h1>
     </div>
     
-    <div class="header_img">
-        <img src="./img/affogato.jpg" alt="ESPRESSO AFFOGATO Frappuccino" width="560px">
-        <p>(ESPRESSO AFFOGATO)</p>
+    <div class="prunk">
+        <div class="header_img">
+            <img src="./img/canpus_nakamozu.jpg" alt="second_image" width="560px" height="360px">
+            <p>(NAKAMOZU CAMPUS)</p>
+        </div>
+        <div class="header_img">
+            <img src="./img/affogato.jpg" alt="first_image" width="560px" height="360px">
+            <p>(ESPRESSO AFFOGATO)</p>
+        </div>
     </div>
 
-    <p>Affogato beverages and desserts alike are loved for their contrast of hot and cold as well as their pleasing appearance.
-    </p>
+    <!-- 
+    <div class="history">
+        <h2> History </h2>
+        <p>
+            Osaka City University, which had been established by the Osaka Municipal Government, and Osaka Prefecture University, which had been established by the Osaka Prefectural Government, merged in 2022 to form Osaka Metropolitan University (OMU). 
+            Osaka City University started out as the Osaka Commercial Training Institute, and Osaka Prefecture University as a training school in veterinary science. 
+            The histories of both universities date back around 140 years, and their development tracked that of the major city of Osaka as the “City of Water,” a strategic transportation hub, while the city itself has developed alongside these two universities.
+            While covering educational fields as diverse as commerce, agriculture, engineering, and medicine, among others, 
+            both universities have utilized their respective geographical advantages to contribute to the development of the spiritual culture required by residents of Osaka as a major city as well as the vitalization of its industry and economy, 
+            through the organic fusion of theory and practice.
+        </p>
+        <p>
+            For more information and please refer to
+            <a href="https://www.omu.ac.jp/en/">Osaka Metropolitan University</a>
+            <a href="https://www.omu.ac.jp/">大阪公立大学</a>
+        </p>
+    </div> -->
 
-    <p>Affogato is generally favoured with vanilla, but feel free to try this recipe with other combinations as well,
-        such as green tea or coffee Frappuccinos if you’re looking to make them a little stronger.
-    </p>
-
-    <p>For more information and please refer to
-        <a href="https://www.starbucks.co.jp/">starbucks.co.jp</a>.<br />
-        We hope to come and enjoy your wonderful life with our coffee
-        <a href="https://store.starbucks.co.jp/detail-4050/">@堺百舌鳥店</a>.
-    </p>
-
-    <div class="button">
-        <button id="baz">Don't you dare click!</button>
-        <script src="index.js"></script>
-        <p>JavaScript（index.js）を変更しても反映されない場合は，ブラウザのキャッシュを削除してみてください．</p>
-        <p>macでchromeの場合は，<code>sift + command + delete</code> でお願いします．</p>
+    <div class="appealing">
+        <h2>Thank you for visiting.</h2>
+        <p>
+            魅力あふれる大阪公立大学情報学研究科へようこそ
+        </p>
     </div>
-
-
-    <div id="foo">
-        <p><em>Thank you for visiting.</em></p>
-    </div>
-
 
     <hr>
-    <p>以下に，簡単に，2個の機能を試してみました．</p>
-    <p>1個目は，youtubeの動画の埋め込みです．コードをコピペするだけなので，非常に簡単でした．</p>
-    <p>2個目は，ボタンを押すことで，pythonによってリアルタイムで作成されたWordCloudの画像を表示させることです．</p>
-    <p>ボタンを押すとFastAPIによるWeb APIが起動します．Web APIのリンクに飛ぶと，pythonがWordCloudの画像を生成して，共有ディレクトリ（ホスト，pythonコンテナ，webコンテナが共有しているディレクトリ）にその画像をコピーします．</p>
-    <p>ただし，飛んだままでは良くないので，最後にリダイレクトすることで，ボタンを押したページまで戻ってくる仕様です（無茶苦茶ですみません）．</p>
-    <p>また，共有ディレクトリにWordCloudの画像が渡されたので，htmlはその画像を読み込むことができています．</p>
-    <p>WordCloudの画像については，「歌詞検索サービス 歌ネット」から抽出した，日向坂46さんの全曲の歌詞を入力データとしています．</p>
-    <p>秋元康さんの作詞の特徴ですが，一人称「僕」，二人称「君」，疑問多い，男性目線の恋愛ソング書きがちなところが出てきています．（内容薄い）</p>
-    <hr>
-
-    <div class="youtube-video">
-        <div class=""song-title>
-            <h2>日向坂46 8th Single「月と星が踊るMidnight」</h2>
+    <div class="youtube_video">
+        <div class="youtube_title">
+            <h2>総合知で，超えていく大学</h2>
         </div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/vgEVzGcr89w?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/WQq_zXlpRMY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
-
-    <div class="wordcloud">
-        <p>左下のボタンを押すとWordCloudの画像をリアルタイムで作成し出力します．</p>
-        <p>（作成には時間がかかります...）</p>
-        <p>また，右下のボタンを押すとWordCloudの画像を削除します．</p>
-
-        <div class="buttom">
-            <button id="generate" onclick="location.href='http://localhost:8080/api/getWordCloud'">click and generate!</button>
-            <!-- <button id="generate2" onclick="window.open('http://localhost:8080/api/getWordCloud')">click to generate2!</button> -->
-            <button id="delete" onclick="location.href='http://localhost:8080/api/deleteWordCloud'">click and delete!!!</button>
-        </div>
-    
-        <div class="wordcloud_img">
-            <img src="./share-with-python/ohisama.png" alt="word_cloud_image" width="560px" vspace="20px">
-        </div>
-    </div>
-
 
     <div class="footer">
         &copy; January 2023
     </div>
-
-
-
 </body>
-
 </html>

@@ -38,25 +38,37 @@ a {
     display: block;
 }
 
-.header_img {
+/* ホバー処理 */
+.prunk {
+    position: relative;
+    overflow: hidden;
     text-align: right;
-    margin-bottom: 30px;
+    margin-bottom: 50px auto;
 }
 
-.button {
-    margin-top: 50px;
-    text-align: center;
-}
-#baz {
-    padding: 10px 20px;
-}
-
-#foo {
-    font-size: 50px;
-    color: sandybrown;
+.header_img:nth-child(2) {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;  /* 文字被りの対策 */
 }
 
-.song-title {
+.prunk:hover .header_img:nth-child(2) {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.history p {
+    text-align: left;
+}
+
+.appealing {
+    color: rgb(56, 31, 8);
+}
+
+.youtube_title {
     font-family: Crimson Pro, serif !important;
 }
 
@@ -72,10 +84,10 @@ a {
     margin-bottom: 50px;
 }
 
-
 body {
     width: 35em;
     margin: 0 auto;
+    text-align: center;
     font-family: Tahoma, Verdana, Arial, sans-serif;
 }
 
