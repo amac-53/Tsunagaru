@@ -1,63 +1,85 @@
 @charset "UTF-8";
 
-/* ダークモード */
-/* html {
-    color-scheme: light dark;
-} */
-
 a {
     text-decoration: none;
     color: midnightblue;
 }
 
-.header {
+/* タイトル */
+.header-title h1 {
     font-family: Crimson Pro, serif !important;
-    width: 600px;
-    /* background: #eee; */
-    margin-bottom: 50px;
+    margin: 0px;
+    padding: 50px;
 }
-.header h1 {
-    padding: 5px;
-}
-.header ul {
+
+/* ナビゲーションヘッダー */
+.header-nav ul {
+    position: fixed;
+    z-index: 100;
     display: flex;
-    padding-left:0;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    padding-left:0px;
 }
-.header ul li {
+
+.header-nav ul li {
+    font-family: Crimson Pro, serif !important;
     list-style:none;
-    width: 300px;
+    width: 412px;
     text-align: center;
-    background: wheat;
+    background-color:var(--theme,#caa82b);
     border-right: 2px solid #eee;
-    padding: 5px;
+    padding: 10px;
 }
-.header ul li:first-child{
+.header-nav ul li:first-child{
     border-left: 2px solid #eee;
 }
-.header ul li a {
+.header-nav ul li a {
     display: block;
 }
 
-.header_img {
+/* ホバー処理 */
+.prunk {
+    position: relative;
+    overflow: hidden;
     text-align: right;
+    margin-bottom: 50px auto;
+}
+
+.header_img:nth-child(2) {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;  /* 文字被りの対策 */
+}
+
+.prunk:hover .header_img:nth-child(2) {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.history p {
+    text-align: left;
+}
+
+.appealing {
+    color: rgb(56, 31, 8);
+}
+
+/* youtube */
+.youtube-title{
+    font-family: Crimson Pro, serif !important;
+}
+
+.youtube-video{
     margin-bottom: 30px;
 }
 
-.button {
+/* twitter */
+.twitter {
     margin-top: 50px;
-    text-align: center;
-}
-#baz {
-    padding: 10px 20px;
-}
-
-#foo {
-    font-size: 50px;
-    color: sandybrown;
-}
-
-.song-title {
-    font-family: Crimson Pro, serif !important;
 }
 
 .wordcloud {
@@ -67,15 +89,14 @@ a {
 .footer {
     text-align: center;
     color: white;
-    background: #79a1b1;
+    background-color:var(--theme,#caa82b);
     padding: 10px;
-    margin-bottom: 50px;
 }
 
-
 body {
-    width: 35em;
+    width: 54em;
     margin: 0 auto;
+    text-align: center;
     font-family: Tahoma, Verdana, Arial, sans-serif;
 }
 
