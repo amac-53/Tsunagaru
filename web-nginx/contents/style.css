@@ -1,10 +1,5 @@
 @charset "UTF-8";
 
-/* ダークモード */
-/* html {
-    color-scheme: light dark;
-} */
-
 a {
     text-decoration: none;
     color: midnightblue;
@@ -30,9 +25,9 @@ a {
 .header-nav ul li {
     font-family: Crimson Pro, serif !important;
     list-style:none;
-    width: 268px;
+    width: 412px;
     text-align: center;
-    background: wheat;
+    background-color:var(--theme,#caa82b);
     border-right: 2px solid #eee;
     padding: 10px;
 }
@@ -73,8 +68,18 @@ a {
     color: rgb(56, 31, 8);
 }
 
-.youtube_title {
+/* youtube */
+.youtube-title{
     font-family: Crimson Pro, serif !important;
+}
+
+.youtube-video{
+    margin-bottom: 30px;
+}
+
+/* twitter */
+.twitter {
+    margin-top: 50px;
 }
 
 .wordcloud {
@@ -84,9 +89,8 @@ a {
 .footer {
     text-align: center;
     color: white;
-    background: #79a1b1;
+    background-color:var(--theme,#caa82b);
     padding: 10px;
-    margin-bottom: 50px;
 }
 
 body {
