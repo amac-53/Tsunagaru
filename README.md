@@ -1,8 +1,6 @@
 # Tsunagaru
 Web site to introduce the laboratories of the Graduate School of Informatics, Osaka Metropolitan University, Japan.
 
-# Overview
-
 # Requirements
 Only `docker` and `docker-compose` commands are required. Please install these two commands according to <a href="https://docs.docker.com/">Docker Documentation</a>.
 
@@ -10,7 +8,6 @@ Only `docker` and `docker-compose` commands are required. Please install these t
 > Note: Use port `8080` on localhost to access the launched Web site by default. If port `8080` on your machine is inconvenient, please change all the `8080` written in the following files as needed:
 > - ``8080:80`` in the file ``docker-compose.yaml``
 > - ``http://localhost:8080`` in the file ``app-python3/src/main.py``
-
 
 In the beginning, type the following command to start two containers: `omu-nginx-container` and `omu-python-container`, which will take tens of minutes to complete some jobs of downloading or creating a docker image, installing apt packages and pip modules, etc.
 ```sh
@@ -40,7 +37,6 @@ Below is a brief description of the implementation details. Please read only the
 | Logo | Virtual Background |
 |------|----------------|
 | ![](./images/Logo.png) | ![](./images/Zoom.png) |
-
 
 ## Architecture
 <div align="center">
