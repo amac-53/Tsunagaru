@@ -1,3 +1,3 @@
-共有ディレクトリです
+Here it works as a shared directory.
 
-3個のディレクトリ``share``と``share-with-web/``と``share-with-python``の中身が共有されます
+The contents of three directories ``share``, ``share-with-web`` and ``share-with-python`` are shared immediately.

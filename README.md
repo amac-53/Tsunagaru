@@ -1,132 +1,97 @@
-# nginx-html-css-js-python
-プロトタイプを作ってみました．
-web側とdockerの技術的な関係に対する理解の助けになれば幸いです．
-（個人的に，HTML，CSS，JavaScriptを触ってみたかった．）
+# Tsunagaru
+Web site to introduce the laboratories of the Graduate School of Informatics, Osaka Metropolitan University, Japan.
 
-## 要約
-pythonで作成した画像をnginx（html，css，javascript）環境で表示する．
+# Overview
 
-## 目的
-- HTML，CSS，JavaScriptでWebページ（Webアプリ？）を作成する
-- pythonでワードクラウド等の画像を作成して，HTMLに埋め込みたい
-- できればWebサイト上で何かボタンを押すと，バックエンドでpythonが自動的に画像を作成して，それをHTMLが拾える良い（pythonコンテナは触らない）
-- 上記の環境をdockerのみで構築する（ホストの環境を汚さない）
+# Requirements
+Only `docker` and `docker-compose` commands are required. Please install these two commands according to <a href="https://docs.docker.com/">Docker Documentation</a>.
 
-
-## 留意点
-- HTML，CSS，JavaScriptの知識が皆無なので，非常に雑になっています
-- jQuery試せてません，すみません...
-- pythonのソースコードも雑で，とりあえず動きましたというレベルです
-- ダメな部分ばかりだと思うので，些細な点でも話合い改善していきたいです
-
----
-## とりあえず動かす
-
-> 動かす前の注意点です．
-> Webサイトをlocalhostの8080番ポートからアクセスします．もし，8080番ポートが不都合であれば，
-> - ``docker-compose.yaml``の``8080:80``
-> - ``app-python3/src/main.py``の``http://localhost:8080``
-> 
-> の全ての``8080``を変更してください．
+# Getting Started
+> Note: Use port `8080` on localhost to access the launched Web site by default. If port `8080` on your machine is inconvenient, please change all the `8080` written in the following files as needed:
+> - ``8080:80`` in the file ``docker-compose.yaml``
+> - ``http://localhost:8080`` in the file ``app-python3/src/main.py``
 
 
-まずは，nginxとpythonのコンテナを起動します．docker imageのダウンロードと作成，パッケージやpipモジュールのインストール等があるため，時間がかかります．
+In the beginning, type the following command to start two containers: `omu-nginx-container` and `omu-python-container`, which will take tens of minutes to complete some jobs of downloading or creating a docker image, installing apt packages and pip modules, etc.
 ```sh
 $ docker-compose up -d --build
 ```
 
-無事にコンテナが2個作成されると，Webサイトにアクセスすることができます．
-chrome等のブラウザのアドレスバーにて，
+Once two containers are successfully created, you can access the Web site. Try typing the following URL in the address bar of a web browser such as Google Chrome.
 ```sh
 localhost:8080
 ```
-あるいは，
+or
 ```sh
 http://localhost:8080
 ```
-と入力してみてください．もし，Webサイトにアクセスできない場合は，Discord（か大学のメールなど）で教えてください．
+> Note: If you do not have access to the launched Web site, please let us know via Univ. Email.
 
-そして，Webサイトの1番下までいくと，``word_cloud_image``と文字だけあり，画像が表示されてないところがあります．
-``click and generate!``ボタンを押すと，画像が表示されます（内部でpythonによるスクレイピング・形態素解析・wordcloud作成の3ステップを踏んでいるため，時間がかかります）．
+When you have access to the Web site, you can visit the introduction pages of Osaka Metropolitan University and the laboratories of Graduate School of Informatics. We hope you enjoy it.
 
-> 実際に，共有ディレクトリである``share``を見てみると``ohisama.png``が生成されています．ただし，同じ共有ディレクトリである``share-with-web``と``share-with-python``については，各々のコンテナに入ると画像があることを確認できると思います．
-
-最後に，``click and delete!!!``ボタンを押すと先ほど作成された画像が削除されます．
-> 画像の作成と削除は何回も繰り返すことができます．最後に画像を削除してから次のステップへ進むと，ホストを完全にクリーンな状態に戻すことができます．
-
-終わりに，以下のコマンドを打つと，コンテナが削除されて環境が元に戻ります．
+At the end, type the following command to remove the containers and clean all the environment.
 ```sh
 $ docker-compose down
 ```
-以上です．
 
----
+# Detail Views
+Below is a brief description of the implementation details. Please read only the sections that interest you.
+## Image Materials
+| Logo | Virtual Background |
+|------|----------------|
+| ![](./images/Logo.png) | ![](./images/Zoom.png) |
 
-# 詳細
-以下に，簡単な詳細を記述していきます．気になった部分だけ見ていただけたらと思います．
 
-## 環境（アーキテクチャ）
+## Architecture
 <div align="center">
-<img src="./images/archi.png" width="90%" >
+<img src="./images/archi.png" width="95%" >
 </div>
 
-### ディレクトリ構成
-
-```
+## Directory Layout
+This is an overview of the directory tree. Hence, only major files and directories are shown here.
+<pre>
 .
+├── app-python3
+│   ├── src
+│   │   ├── main.py
+│   │   ├── (share-with-web)
+│   │   └── wordcloud_omu
+│   ├── Dockerfile
+│   └── requirements.txt
+├── images
+├── share
+├── web-nginx
+│   ├── conf.d
+│   └── contents
+│       ├── img
+│       ├── index.html
+│       ├── (share-with-python)
+│       └── style.css
 ├── README.md
-├── app-python3/     ← pythonコンテナ用（Dockerfileから作成したimageを使用）
-│   ├── Dockerfile     ← image作成用
-│   ├── requirements.txt     ← pip用
-│   └── src/
-│       ├── main.py     ← FastAPI
-│       ├── share-with-web/     ← 共有ディレクトリ
-│       └── wordclouds/     ← バックエンド処理
-│           ├── morphological_analysis.py
-│           ├── run.sh
-│           ├── scraping_uta_net.py
-│           └── wordcloud_hinatazaka46.py
-├── docker-compose.yml     ← pythonとwebサーバの2個のコンテナを作成
-├── images     ← README.md用の素材
-│   ├── archi.drawio
-│   └── archi.png
-├── share/     ← 共有ディレクトリ
-└── web-nginx/     ← webサーバのコンテナ用（nginx:latestのimageを使用）
-    ├── conf.d/
-    │   ├── default.conf
-    │   └── nginx.conf
-    └── contents/     ← HTML，CSS，JavaScriptによるWebページ
-        ├── bar.html
-        ├── baz.html
-        ├── foo.html
-        ├── img/
-        │   └── affogato.jpg
-        ├── index.html
-        ├── index.js
-        ├── share-with-python/     ← 共有ディレクトリ
-        └── style.css
-```
+└── docker-compose.yml
+</pre>
 
-### docker-compose（特に共有ディレクトリとコーディングするファイルについて）
-##### 全体
-- ホスト上の``./share/``，pythonコンテナ上の``/opt/share-with-web/``，nginxサーバ上の``/usr/share/nginx/html/share-with-python/``の中身全ては共有されるため，ここに渡したい画像データを保管する予定
-##### app-python3-svc
-- ローカルホストの8001番ポートにアクセスすると，pythonコンテナの8080番ポートに繋がる
-- ホスト上の``./app-python3/src/``と，コンテナ上の``/opt/``は共有されるため，ここで**コーディング**したいファイル``.py``などを保管する予定
-##### web-nginx-svc
-- ローカルホストの8080番ポートにアクセスすると，pythonコンテナの80番ポートに繋がる
-- ホスト上の``./web-nginx/contents/``と，コンテナ上の``/usr/share/nginx/html/``は共有されるため，ここで**コーディング**したいファイル``.html``, ``.css``, ``.js``などを保管する予定
+### docker-compose.yml
+#### app-python3-svc
+- Accessing port `8001` on the local host leads to port `8080` on `omu-python-container`.
+- The files you want to **code** such as ``.py`` will be stored in ``./app-python3/src`` on the localhost which is bind-mounted into ``/opt`` on the python container.
+#### web-nginx-svc
+- Accessing port `8080` on the local host leads to port `80` on `omu-nginx-container`.
+- The files you want to **code** such as ``.html``, ``.css``, ``.js`` will be stored in ``./web-nginx/contents`` on the localhost which is bind-mounted into ``/usr/share/nginx/html`` on the nginx container.
+#### volumes
+- The contents of three directories ``share``, ``share-with-web`` and ``share-with-python`` are shared immediately.
 
 
+### app-python3
+- This is the directory for managing the python container.
+- Use python v3.9 to use WordCloud library (though latest version is v3.11)
+- The pip modules necessary to install are listed in ``requirements.txt``.
+- In ``main.py``, use FastAPI to have the python process run in the background by simply clicking on a URL embedded in the Web site.
+- Three main steps are required to create WordCloud image: scraping, morphological analysis, and WordCloud image creation. ``run.sh`` handles them all at once.
+- The created WordCloud image will be copied to the shared directory ``share-with-web``.
 
-### app-python3/（pythonコンテナ）
-- wordcloudを使用するために，python v3.9を使用している（最新版はv3.11）
-- pipでインストールしたいものは，``requirements.txt``に追記する
-- ``main.py``において，FastAPIを使用することで，URLをクリックするだけで，pythonによる処理を行なってくれるようにしている
-- ``wordclouds/``では，スクレイピング・形態素解析・ワークドラウド作成の3ステップのソースコード``.py``があり，それを一気に処理してくれるシェルスクリプト``run.sh``がある．なお，wordcloudで日本語を出力するために必要なfont用のファイル``.ttf``のダウンロードも``run.sh``が行っている．
-- 作成されたWordCloud画像は共有ディレクトリ``share-with-web/``にコピーされる
-
-### web-nginx/（nginxコンテナ）
-- ``conf.d/``では，「nginxコンテナ→pythonコンテナ」の転送設定などを行っている．もうあまり弄りたくない...
-- ``contents/``にて，HTML，CSS，JavaScriptを編集する
-- 一応，``img/``が元から用意した画像などを格納する場所，``share-with-python/``がpythonによる成果物を格納する場所として用意したが，どうなるかは今後次第...
+### web-nginx
+- This is the directory for managing the nginx container.
+- You can edit HTML, CSS, and JavaScript files in ``contents``.
+- By configuration file ``conf.d``, the nginx container also act as a reverse proxy to forward requests destined for the `:8080/api` to the python container
+- ``img`` is the place to store the originally prepared images, while ``share-with-python`` is the place to store the python products such as WordCloud image.
