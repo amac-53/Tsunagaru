@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+a {
+    text-decoration: none;
+    color: midnightblue;
+}
+
+/* タイトル */
+.header-title h1 {
+    font-family: Crimson Pro, serif !important;
+    margin: 0px;
+    padding: 50px;
+}
+
+/* ナビゲーションヘッダー */
+.header-nav ul {
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    padding-left:0px;
+}
+
+.header-nav ul li {
+    font-family: Crimson Pro, serif !important;
+    list-style:none;
+    width: 412px;
+    text-align: center;
+    background-color:var(--theme,#caa82b);
+    border-right: 2px solid #eee;
+    padding: 10px;
+}
+.header-nav ul li:first-child{
+    border-left: 2px solid #eee;
+}
+.header-nav ul li a {
+    display: block;
+}
+
+/* ホバー処理 */
+.prunk {  /* typo? (prank) */
+    position: relative;
+    overflow: hidden;
+    text-align: right;
+    margin-bottom: 50px auto;
+}
+
+.header_img:nth-child(2) {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;  /* 文字被りの対策 */
+}
+
+.prunk:hover .header_img:nth-child(2) {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.history p {
+    text-align: left;
+}
+
+.appealing {
+    color: rgb(56, 31, 8);
+}
+
+/* youtube */
+.youtube-title{
+    font-family: Crimson Pro, serif !important;
+}
+
+.youtube-video{
+    margin-bottom: 30px;
+}
+
+/* twitter */
+.twitter {
+    margin-top: 50px;
+}
+
+.wordcloud {
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+    color: white;
+    background-color:var(--theme,#caa82b);
+    padding: 10px;
+}
+
+body {
+    width: 54em;
+    margin: 0 auto;
+    text-align: center;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+
+
+/* 研究室紹介用 */
+.content {
+    text-align: left;
+    margin: 40px;  /* どれくらいがいい？ */ 
+    padding: 0px;
+}
+
