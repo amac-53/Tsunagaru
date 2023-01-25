@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+/* 文章 */
+.explanation_sentence {
+    text-align: center;
+    font-size: 40px;
+    color: #0099FF;
+}
+
+/* ボタン */
+/* https://pulpxstyle.com/css-button/ */
+.button09 a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    padding: 1em 2em;
+    width: 200px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: sandybrown;
+    transition: 0.3s;
+}
+.button09 a::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    border: 2px solid #3d9ec8;
+    transition: 0.2s;
+}
+.button09 a::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-top: 3px solid #333333;
+    border-right: 3px solid #333333;
+    transform: rotate(45deg);
+}
+.button09 a:hover::before {
+    top: 0;
+    left: 0;
+}
+.button09 a:hover {
+    text-decoration: none;
+    background-color: #a0c4d3;
+}
+
+/* ワードクラウド画像 */
+.wordcloud_image {
+    text-align: center;  /* 中央揃え */
+}
+.wordcloud_image img{
+    max-width: 100%;  /* 画像サイズを自動調整 */
+    height: auto;
+}
+
+.footer {
+    text-align: center;
+    color: white;
+    background: #79a1b1;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+/* 全体設定 */
+body {
+    width: 35em;
+    margin: 0 auto;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+}
