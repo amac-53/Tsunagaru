@@ -1,7 +1,3 @@
-# 参考: https://zatsugaku-engineer.com/python/scraping/
-# 参考: https://qiita.com/yuuuusuke1997/items/122ca7597c909e73aad5
-# スクレイピングで曲名と歌詞テキストを抽出
-
 from janome.tokenizer import Tokenizer
 import json
 

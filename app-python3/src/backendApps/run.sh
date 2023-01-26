@@ -1,7 +1,7 @@
 #!/bash
 
 # なければ，フォントファイルのダウンロード
-if [ ! -f ./data/ipaexg.ttf ]; then
+if [ ! -f ./backendApps/data/ipaexg.ttf ]; then
     cd data
     curl -O https://moji.or.jp/wp-content/ipafont/IPAexfont/ipaexg00401.zip
     unzip ipaexg00401.zip
@@ -11,11 +11,11 @@ if [ ! -f ./data/ipaexg.ttf ]; then
     cd ..
 fi
 
-# ワードクラウド画像（./results/wordcloud_omu.png）を生成
-python wakachi_omu.py
-python wordcloud_omu.py
+# ワードクラウド画像（./backendApps/results/wordcloud_omu.png）を生成
+python ./backendApps/wakachi_omu.py
+python ./backendApps/wordcloud_omu.py
 
 # あれば，ワードクラウド画像を共有ディレクトリにコピー
-if [ -f ./results/wordcloud_omu.png ]; then
-    cp ./results/wordcloud_omu.png ../share-with-web/wordcloud_omu.png
+if [ -f ./backendApps/results/wordcloud_omu.png ]; then
+    cp ./backendApps/results/wordcloud_omu.png ./share-with-web/wordcloud_omu.png
 fi

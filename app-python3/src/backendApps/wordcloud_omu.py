@@ -1,4 +1,3 @@
-
 from wordcloud import WordCloud
 
 text_file = open('./results/wakachi_omu_list.txt', encoding='utf-8')

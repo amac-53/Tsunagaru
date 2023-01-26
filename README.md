@@ -51,7 +51,7 @@ This is an overview of the directory tree. Hence, only major files and directori
 │   ├── src
 │   │   ├── main.py
 │   │   ├── (share-with-web)
-│   │   └── wordcloud_omu
+│   │   └── wordcloud_omu_labos
 │   ├── Dockerfile
 │   └── requirements.txt
 ├── images
