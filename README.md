@@ -91,3 +91,11 @@ This is an overview of the directory tree. Hence, only major files and directori
 - You can edit HTML, CSS, and JavaScript files in ``contents``.
 - By configuration file ``conf.d``, the nginx container also act as a reverse proxy to forward requests destined for the `:8080/api` to the python container
 - ``img`` is the place to store the originally prepared images, while ``share-with-python`` is the place to store the python products such as WordCloud image.
+
+## FastAPI
+Visit the following page to try to see how python container create a real-time Word Cloud on the backend via WebAPI (implemented with FastAPI).
+```sh
+http://localhost:8080/backendApps.html
+```
+
+> Note: backendApps.html cannot be accessed from other html files and requires a direct link to be entered
