@@ -1,0 +1,42 @@
+</html><!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ワードクラウド</title>
+    <link rel="stylesheet" href="backendApps.css">
+</head>
+
+<body>
+    
+    <header>
+        <a href="index.html"><img src="./img/tsunagaru.png" alt="informatics_logo"  width="120px" height="80px"></a>
+    </header>
+
+    <h1 class="explanation_sentence">ボタンを押してみよう！</h1>
+    <h3>pythonコンテナがバックエンドで、リアルタイムにWord Cloudを作成したり削除したりします。</h3>
+    <h4 style="color: red;">※ 挙動がおかしい場合は、ブラウザのキャッシュを削除してください。</h4>
+    <h4>※ 左上のロゴマークをクリックすると、ENTRANCEに戻れます。</h4>
+    <br>
+    <br>
+    <div class="button09">
+        <a href="http://localhost:8080/api/getWordCloud">Create !</a>
+        <br>
+        <a href="http://localhost:8080/api/deleteWordCloud">Delete !</a>
+    </div>    
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="wordcloud_image">
+        <img src="./share-with-python/wordcloud_omu.png" alt="word_cloud_image">
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</body>
+</html>
