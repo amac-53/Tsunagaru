@@ -53,7 +53,7 @@ a {
 }
 
 /* ホバー処理 */
-.prunk {
+.prunk {  /* typo? (prank) */
     position: relative;
     overflow: hidden;
     text-align: right;
@@ -114,3 +114,9 @@ body {
     font-family: Tahoma, Verdana, Arial, sans-serif;
 }
 
+
+/* 研究室紹介用 */
+.list-labo {
+    text-align: left;
+    color: rgb(56, 31, 8);
+}
